@@ -1,0 +1,326 @@
+<%- include("../layouts/header")%>
+    <head>
+        <%if(errors){%>
+            <style>
+                input:invalid {
+                    border-color: red;
+                }
+            </style>
+            <%}%>
+                <link rel="stylesheet" href="/style/virtualAppeal.css">
+    </head>
+    <body>
+        <main class="container virtual-appeal inner-page-margin ">
+            <div class="virtual-appeal-togglers">
+                <a href="/uz/virtual-appeals" class="virtual-appeal__page-btn virtual-appeal__page-btn-active mr-16"
+                    data-type="appeal">Murojaatni yuborish uchun
+                    ariza</a>
+                <a href="/uz/virtual-appeals/statistics"
+                    class="virtual-appeal__page-btn virtual-appeal__page-btn-non-active"
+                    data-type="statistic">Statistika va
+                    murojaat holatini tekshirish</a>
+            </div>
+            <div class="virtual-appeal__fill ">
+            <form action="/uz/virtual-appeals" method="post" class="grid grid-2-cols">
+            <div>
+     <!-- NAME INPUT -->
+     <% if(errors.fullName){%>
+         <p class="error-message">
+             <%= errors.fullName %>
+         </p>
+         <% } %>
+             <input class="virtual-appeal__input virtual-appeal__name-input" type="text"
+                 name="fullName" value='<%= data.fullName %>' placeholder="F.I.O" required
+                 oninvalid="this.setCustomValidity(`F.I.O kiritish majburiy!`)"
+                 oninput="this.setCustomValidity('')">
+             <!-- DATE INPUT -->
+             <% if(errors.birthDate){%>
+                 <p class="error-message">Tug'ilgan kun xato kiritildi!</p>
+                 <% } %>
+         <div class="flex gap-30">
+
+             <input class="virtual-appeal__input virtual-appeal__date-input" type="date"
+                 name="birthDate" value='<%= data.birthDate %>'
+                 placeholder="Tug'ilgan sana" required
+                 oninvalid="this.setCustomValidity(`Tug'ilgan kunni kiritish majburiy!`)"
+                 oninput="this.setCustomValidity('')">
+             <div class=" flex gap-30">
+
+                 <span class="virtual-appeal__text small-print">Jinsi</span>
+                 <!-- GENDER SECTION -->
+                 <div class="virtual-appeal__gender-btns flex">
+                                                    <div class="flex center">
+                         <input id="male" type="radio" name="gender" value="MALE"
+                             class="virtual-appeal__radio male" checked="checked" />
+                         <label for="male" class="virtual-appeal__btn ">Erkak</label>
+
+                     </div>
+                     <div class="flex center">
+                         <input id="female" type="radio" name="gender" value="FEMALE"
+                             class="virtual-appeal__radio" />
+                         <label for="female" class="virtual-appeal__btn">Ayol</label>
+
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <!-- SELECT REGION SECTION  -->
+       <% if(errors.passportInformations){%>
+     <p class="error-message">
+                  <%= errors.passportInformations %>
+        </p>
+       <% } %>
+     <input class="virtual-appeal__input virtual-appeal__name-input"
+     type="text" name="passportInformations"
+    value='<%= data.passportInformations %>'
+     placeholder="Pasport seriyasi va raqam" required
+     oninvalid="this.setCustomValidity(`Passport ma'lumotlarini kiritish majburiy!`)"
+     oninput="this.setCustomValidity('')">
+
+    <select class="virtual-appeal__input virtual-appeal__name-input"
+    name="region" id="regionsList" required
+     oninvalid="this.setCustomValidity(`Viloyatni tanlash majburiy`)"
+     oninput="this.setCustomValidity('')">
+     <% if(allRegions.length>0) {%>
+      <%if(data.region){%>
+       <option value="<%=data.region%>" selected>
+     <%=allRegions.filter(r=>r.id===data.region)[0].name_uz%>
+         </option>
+          <%} else {%>
+              <option value="">Viloyatni tanlang</option>
+              <%}%>
+                  <% allRegions.map(region=>{%>
+                      <option value="<%=region.id%>">
+                          <%=region.name_uz%>
+                      </option>
+                      <%})%>
+                          <% }%>
+          </select>
+          <select class="virtual-appeal__input virtual-appeal__name-input"
+              name="district" id="districtsList" required
+              oninvalid="this.setCustomValidity(`Tumanni tanlash majburiy!`)"
+              oninput="this.setCustomValidity('')">
+              <% if(districts?.length>0) {%>
+                  <option value="<%=data.district%>" selected>
+                      <%=districts?.filter(d=>d.id===data.district)[0].name_uz%>
+                  </option>
+                  <%} else{%>
+                      <option value="">Tumanni tanlang -(Tumanlar viloyat
+                          tanlangandan so'ng tanlanadi!!!!)</option>
+                      <% }%>
+         </select>
+        <% if(errors.address){%>
+          <p class="error-message">
+        <%= errors.address %>
+         </p>
+     <% } %>
+   <input type="text" placeholder="Manzilni kiriting"
+       value='<%= data.address %>'
+       class="virtual-appeal__input virtual-appeal__name-input"
+       name="address" required
+       oninvalid="this.setCustomValidity(`Manzilni kiritish majburiy!`)"
+       oninput="this.setCustomValidity('')" />
+   <!-- EMAIL -->
+   <% if(errors.email){%>
+       <p class="error-message">
+           <%= errors.email %>
+       </p>
+       <% } %>
+     <input type="email" placeholder="E-mail"
+         class="virtual-appeal__input virtual-appeal__name-input"
+         value='<%= data.email %>' name="email" required
+         oninvalid="this.setCustomValidity(`Email kiritish majburiy!`)"
+         oninput="this.setCustomValidity('')" />
+     <!-- PHONE NUMBER -->
+     <% if(errors.phoneNumber){%>
+         <p class="error-message">
+             <%= errors.phoneNumber %>
+         </p>
+         <% } %>
+        <input
+            class="virtual-appeal__input virtual-appeal__name-input"
+            type="text" value='<%= data.phoneNumber %>'
+            placeholder="Telefon raqam"
+            name="phoneNumber" required
+            oninvalid="this.setCustomValidity(`Telefon raqamni kiritish majburiy!`)"
+            oninput="this.setCustomValidity('')">
+        <span
+            class="virtual-appeal__text mb-24 small-print">Fayl
+            yuklash</span>
+        <!-- FILE UPLOAD -->
+
+        <span
+            class="error-message  hide" id="file-upload-error-message"></span>
+        <div class="flex gap-30 file-box__container">
+            <div class="virtual-appeal__file__box">
+                <label for="file1"
+                    class="virtual-appeal__file">
+                    <button class="hide file-btn"
+                        type="button" name="btn-file1">
+                        x
+                    </button>
+
+           <svg xmlns="http://www.w3.org/2000/svg"
+               fill="none" viewBox="0 0 24 24"
+               stroke-width="1.5"
+               stroke="currentColor"
+               class="w-10 h-10 virtual-appeal__file__icon ">
+               <path stroke-linecap="round"
+                   stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+           </svg>
+           <svg xmlns='http://www.w3.org/2000/svg'
+               fill='none' viewBox="0 0 24 24"
+               stroke-width="1.5"
+               stroke="#00B533"
+               class="w-6 h-6 virtual-appeal__file__done-icon hide">
+               <path stroke-linecap="round"
+                   stroke-linejoin="round"
+                   d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+           </svg>
+              </label>
+              <input type="file" id="file1"
+                  name="file1" hidden></input>
+
+          </div>
+          <div class="virtual-appeal__file__box">
+              <label for="file2"
+                  class="virtual-appeal__file">
+                  <button class="hide file-btn"
+                      type="button" name="btn-file2">
+                      x
+                  </button>
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                  fill="none" viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-10 h-10 virtual-appeal__file__icon ">
+                  <path stroke-linecap="round"
+                      stroke-linejoin="round"
+             d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+              </svg>
+         <svg xmlns='http://www.w3.org/2000/svg'
+         fill='none' viewBox="0 0 24 24"
+         stroke-width="1.5"
+          stroke="#00B533"
+         class="w-6 h-6 virtual-appeal__file__done-icon hide">
+        <path stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+            </label>
+            <input type="file" id="file2" name="file2" hidden></input>
+        </div>
+
+
+         <div class="virtual-appeal__file__box">
+             <label for="file3"
+                 class="virtual-appeal__file">
+                 <button class="hide file-btn"
+                     type="button" name="btn-file3">
+                     x
+                 </button>
+
+      <svg xmlns="http://www.w3.org/2000/svg"
+          fill="none" viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-10 h-10 virtual-appeal__file__icon">
+          <path stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+               </svg>
+               <svg xmlns='http://www.w3.org/2000/svg'
+                   fill='none' viewBox="0 0 24 24"
+                   stroke-width="1.5"
+                   stroke="#00B533"
+                   class="w-6 h-6 virtual-appeal__file__done-icon hide">
+                   <path stroke-linecap="round"
+                       stroke-linejoin="round"
+                       d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+               </svg>
+
+                  </label>
+                  <input type="file" id="file3"
+                      name="file3" hidden></input>
+                  <input type="text" id="attachments"
+                      name="attachments" hidden
+                      value="<%=data.attachments%>"></input>
+              </div>
+
+
+              <div class="virtual-appeal__file__box">
+             <label for="file4" class="virtual-appeal__file">
+
+            <button class="hide file-btn"
+                type="button" name="btn-file4">
+                x
+            </button>
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-10 h-10 virtual-appeal__file__icon">
+                <path stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+            </svg>
+                 <svg xmlns='http://www.w3.org/2000/svg'
+                     fill='none' viewBox="0 0 24 24"
+                     stroke-width="1.5"
+                     stroke="#00B533"
+                     class="w-6 h-6 virtual-appeal__file__done-icon hide">
+                     <path stroke-linecap="round"
+                         stroke-linejoin="round"
+                         d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                 </svg>
+
+             </label>
+             <input type="file" id="file4"
+                 name="file4" hidden></input>
+         </div>
+     </div>
+                    </div>
+                    <div>
+                        <% if(errors.appealText){%>
+                            <p class="error-message">
+                                <%= errors.appealText %>
+                            </p>
+                            <% } %>
+                                <textarea placeholder="Murojaat matnini kiriting" rows="30" required name="appealText"
+                                    oninvalid="this.setCustomValidity(`Murojaat matinini kiritish majburiy!`)"
+                                    oninput="this.setCustomValidity('')"><%= data.appealText %></textarea>
+
+                                <div class="virtual-appeal__send-button ">
+                                    <button class="virtual-appeal__send mt-20 ">Yuborish</button>
+                                </div>
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- MODAL -->
+            <div class="virtual-appeal__modal <%= status==='success'?'modal-block':'modal-none'%>">
+                <div class="virtual-appeal__modal__content">
+                    <span class="virtual-appeal__modal__text">Sizning murojaatingiz muvaffaqiyatli yakunlandi! </span>
+
+                    <p class="virtual-appeal__modal__parol-text mt-20"><span>Parol: </span>
+                        <%= appealCode%>
+                </p>
+                    <span class="virtual-appeal__modal__text mt-20">Parol <%=email%> pochtangizga yuborildi va ushbu parol orqali
+                            murojatingiz holatini tekshirib turishingiz mumkin!
+                    </span>
+                    <a href="/uz/virtual-appeals">
+                        <button class="virtual-appeal__modal__close">Ok</button>
+                    </a>
+                   
+                </div>
+
+            </div>
+
+        </main>
+        <script src="/js/virtualAppeal.js"></script>
+    </body>
+
+    <%- include("../layouts/footer")%>

@@ -1,0 +1,112 @@
+<!doctype html>
+<head>
+    <script src="./scripts/tinymce_6.2.0/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="application/javascript" src="scripts/tinymce_6.2.0/tinymce/js/tinymce/tinymce.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+
+<div class="admin-panel-post">
+
+    <%- include("../../../layouts-admin/sidebar") %>
+    <main class="admin-panel__main">
+
+        <%- include("../../../layouts-admin/header") %>
+
+        <div class="page-inner">
+
+            <form action="/admin/page/add" method="post">
+
+                <h2 class="admin-panel__main__content__text">Sahifa qo'shish</h2>
+
+                <label class="admin-page-inner__label">
+                    O'zbek tilidagi sahifa
+                    <input class="admin-page-inner__input " name="titleUz" type="text"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+
+                    />
+                    <!--                    <input id="myTextarea"> </input>-->
+                    <textarea id="myTextarea" name="contentUz"
+                    ></textarea>
+                </label>
+                <!--                    <div id="editor" ></div>-->
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Sarlavha" || "Maqola")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+                <label class="admin-page-inner__label ">
+                    Страница на русском
+                    <input name="titleRu" type="text" class="admin-page-inner__input"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    />
+
+                    <textarea id="myTextarea" name="contentRu"
+
+                    ></textarea>
+                </label>
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Добавьте" || "Добавьте")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+                <label class="admin-page-inner__label">
+                    Page in english
+                    <input name="titleEn" type="text" class="admin-page-inner__input"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    />
+
+                    <textarea id="myTextarea" name="contentEn"
+                    ></textarea>
+                </label>
+
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Title" || "Content")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+
+                <label class="admin-page-inner__label">
+                   Menu
+
+                    <select name="menuId" class="admin-page-inner__select" required
+
+
+                    >
+                        <option value=""></option>
+                        <% if(allMenus.length > 0){allMenus.map(menu => { %>
+
+                            <option value="<%= menu.id %>"> UZ: <%= menu.name_uz %> RU: <%= menu.name_ru %> EN: <%= menu.name_en %></option>
+                        <% })} %>
+
+                    </select>
+                </label>
+                <div class="page-inner__btns">
+                    <a class="btn admin-page-inner__btns__cancel" href="/admin/page/?page=1&size=6">Bekor qilish</a>
+
+                    <button type="submit" class="btn admin-page-inner__btns__save">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+
+<!--//////////////////////////////////////-->
+<script src="https://cdn.tiny.cloud/1/8gaiefqk6kkqws6okaw27xqwk113tyskyc15huaqpccbjclw/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script src="/js/admin.js"></script>
+<script type="text/javascript" src="/js/tinyMce.js">
+
+<script type="text/javascript" src="/js/fileUploader.js">
+
+</script>
+
+</body>

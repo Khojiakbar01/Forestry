@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style/style.css" />
+
+  <!-- PHOTO GALLERY -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.3/photoswipe.min.css" />
+
+  <!-- CARUSEL -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+  <!-- VIDEO GALLERY -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/css/lg-video.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/css/lightgallery.min.css" />
+
+  <title>
+    O‘zbekiston Respublikasi O‘rmon Xo‘jaligi Davlat Qo‘mitasining Rasmiy Veb
+    Sayti
+  </title>
+</head>
+
+<body>
+  <!-- SCROLL UP -->
+
+  <button class="top-scroll">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white"
+      class="w-6 h-6 top-scroll__icon">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <header class="header">
+    <div class="container flex gap-100 header__box">
+      <!-- LOGO -->
+      <a href="/" class="header__logo flex gap-16 center">
+        <img class="header__logo__arms" src="/assets/img/gerb.svg" alt="gerb" />
+        <img class="header__logo__flag" src="/assets/img/Flag.svg" alt="flag" />
+        <h1 class="header__logo__title">
+          O‘zbekiston Respublikasi O‘rmon Xo‘jaligi Davlat Qo‘mitasining
+          Rasmiy Veb Sayti
+        </h1>
+      </a>
+
+      <!-- PHONE NUMBER -->
+      <div class="header__box__phone">
+        <p class="white-text header__box__phone__title">Ishonch raqam:</p>
+        <a href="tel:+9989000000" class="header__box__phone__number">
+          +998 (71) 207-88-77</a>
+      </div>
+
+      <!-- SOCIAL MEDIA -->
+      <div class="flex gap-32">
+        <div class="flex header__social gap-16">
+          <a class="header__border-background header__icon" href="https://bit.ly/2YRtiXN" target="_blank">
+            <img src="/assets/img/facebook.svg" alt="facebook" /></a>
+          <a class="header__border-background header__icon" href="https://bit.ly/2WlFa2r" target="_blank"><img
+              src="/assets/img/instagram.svg" alt="instagram" /></a>
+          <a class="header__border-background header__icon" target="_blank" href="https://t.me/urmon_uz">
+            <img src="/assets/img/telegram.svg" alt="telegram" /></a>
+        </div>
+
+        <!-- ACCESSIBILITY -->
+
+        <div class="flex gap-30">
+          <div class="accessibility__box">
+            <button data-type="header-appearance"
+              class="header__border-background header__icon accessibility__appearance">
+              <img src="/assets/img/eye.svg" alt="eye" data-type="header-appearance" />
+            </button>
+
+            <div class="accessibility__appearance__inner" data-type="header-appearance">
+              <p class="accessibility__appearance__inner__text" data-type="header-appearance">
+                Ko'rinish
+              </p>
+              <button class="accessibility__appearance__inner__item no-mode" data-type="header-appearance">
+                A
+              </button>
+              <button class="accessibility__appearance__inner__item black-and-white" data-type="header-appearance">
+                A
+              </button>
+              <button class="accessibility__appearance__inner__item black" data-type="header-appearance">
+                A
+              </button>
+              <p class="accessibility__appearance__inner__text" data-type="header-appearance">
+                Shirift o'lchami <span id="fontSize"></span>
+              </p>
+              <input data-type="header-appearance" type="range" id="range" min="0" max="5" value="0" step="0.1" />
+            </div>
+          </div>
+
+          <!-- SOUND ACCESSIBILITY-->
+          <button class="header__border-background header__icon">
+            <img src="/assets/img/sound.svg" alt="sound" />
+          </button>
+        </div>
+
+        <!-- SELECT LANGUAGE -->
+        <div>
+          <select name="language" class="header__border-background header__language">
+            <option class="header__language__select" value="O'zbek">
+              <a href="lang__uzb">O'zbek</a>
+            </option>
+            <option class="header__language__select" value="Rus">
+              <a href="lang__rus">Русские</a>
+            </option>
+            <option class="header__language__select" value="English">
+              <a href="lang__eng">English</a>
+            </option>
+          </select>
+        </div>
+        <!-- SEARCH -->
+        <div class="header__border-background header__icon">
+          <img src="/assets/img/search.svg" alt="search" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <ul class="nav__list container">
+      <li class="nav__list__content">
+        <a class="nav__link dropdown-menu" href="#">Qo'mita haqida <img src="/assets/img/downArrow.svg" alt="" /></a>
+        <ul class="dropdown-menu__list">
+          <li>
+            <a href="/uz/activity" class="dropdown-menu__list__item">Faoliyat</a>
+          </li>
+          <li>
+            <a href="/uz/function-and-tasks" class="dropdown-menu__list__item">Qo'mita funksiyalari va vazifalari</a>
+          </li>
+          <li>
+            <a href="/uz/management" class="dropdown-menu__list__item">Rahbariyat</a>
+          </li>
+          <li>
+            <a href="/uz/central-apparatus" class="dropdown-menu__list__item">Markaziy apparat</a>
+          </li>
+          <li>
+            <a href="/uz/structure" class="dropdown-menu__list__item">Tarkibiy tuzilma</a>
+          </li>
+          <li>
+            <a href="/uz/system-organizations" class="dropdown-menu__list__item">Tizim tashkilotlari</a>
+          </li>
+          <li>
+            <a href="/uz/hayat" class="dropdown-menu__list__item">Hayʼat</a>
+          </li>
+          <li>
+            <a href="/uz/community-council" class="dropdown-menu__list__item">Jamoatchilik kengashi</a>
+          </li>
+          <li>
+            <a href="/uz/e-government" class="dropdown-menu__list__item">Elektron hukumat</a>
+          </li>
+          <li>
+            <a href="/uz/ecotourism" class="dropdown-menu__list__item">Ekoturizm</a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">Faoliyat ko'rsatkichlari</a>
+          </li>
+
+          <li>
+            <a href="/uz/corruption" class="dropdown-menu__list__item">Korrupsiyaga qarshi kurash</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav__list__content">
+        <a class="nav__link dropdown-menu" href="#">Hujjatlar <img src=" /assets/img/downArrow.svg" alt="" /></a>
+        <ul class="dropdown-menu__list">
+          <li>
+            <a href="/uz/industry-documents" class="dropdown-menu__list__item">O'zbekiston Respublikasi qonunlari</a>
+          </li>
+          <li>
+            <a href="/uz/presidential-decree" class="dropdown-menu__list__item">Prizdent farmon, qaror va
+              farmoyishlari</a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">Vazirlar Mahkamasining qaror va farmoyishlari</a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">
+              Qo'mita hujjatlari</a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">Muhokama hujjatlari</a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav__list__content">
+        <a class="nav__link dropdown-menu" href="#">Interaktiv xizmatlar <img src="/assets/img/downArrow.svg" alt="" />
+        </a>
+        <ul class="dropdown-menu__list">
+          <li>
+            <a href="/uz/useful-links" class="dropdown-menu__list__item">Virtual qabulxona
+              <img src="/assets/img/downArrow.svg" alt="" />
+            </a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">O'rmon fondi yerlarini ijaraga olish portali</a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">Ruxsatnoma olish portali</a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">Elektron hisobot</a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">Yuklab olish uchun shakillar</a>
+          </li>
+          <li><a href="#" class="dropdown-menu__list__item">Forum</a></li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">Fuqarolar murojati</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav__list__content">
+        <a class="nav__link dropdown-menu" href="#">Matbuot markazi <img src="/assets/img/downArrow.svg" alt="" />
+        </a>
+
+        <ul class="dropdown-menu__list dropdown-menu">
+          <li>
+            <a href="/uz/press-center/news/?page=1&size=9" class="dropdown-menu__list__item">Yangiliklar</a>
+          </li>
+          <li>
+            <a href="/uz/press-center/events/?page=1&size=9" class="dropdown-menu__list__item">E'lon va voqealar</a>
+          </li>
+          <li>
+            <a href="/uz/press-center/tenders/?page=1&size=9" class="dropdown-menu__list__item">Tenderlar va
+              xaridlar</a>
+          </li>
+          <li>
+            <a href="/uz/photo-gallery" class="dropdown-menu__list__item">Fotogaleleriya</a>
+          </li>
+          <li>
+            <a href="/uz/video-gallery" class="dropdown-menu__list__item">Videogaleleriya</a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">Matbuot xizmati bilan bog'lanish</a>
+          </li>
+          <li>
+            <a href="/uz/faqs" class="dropdown-menu__list__item">Savol va javoblar</a>
+          </li>
+          <li>
+            <a href="/uz/management-lectures" class="dropdown-menu__list__item">Rahbariyat maruzalari</a>
+          </li>
+          <li>
+            <a href="#" class="dropdown-menu__list__item">Qo'mita rahbariyatining rasmiy chiqishlari</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav__list__content">
+        <a class="nav__link dropdown-menu" href="#">Ochiq ma'lumotlar <img src="/assets/img/downArrow.svg" alt="" />
+        </a>
+
+        <ul class="dropdown-menu__list">
+          <li>
+            <a href="/uz/budget-openness" class="dropdown-menu__list__item">Byudjet ochiqligi</a>
+          </li>
+          <li>
+            <a href="/uz/information-of-social-importance" class="dropdown-menu__list__item">Ijtimoiy ahamiyatga molik
+              ma'lumotlar</a>
+          </li>
+          <li>
+            <a href="/uz/investment-projects" class="dropdown-menu__list__item">Investitsion loyihalar</a>
+          </li>
+          <li>
+            <a href="/uz/budget-openness" class="dropdown-menu__list__item">Ochiq ma'lumotlar</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a class="nav__link dropdown-menu" href="/uz/information">Ma’lumot
+        </a>
+      </li>
+      <li>
+        <a class="nav__link dropdown-menu" href="/uz/connection">Bog'lanish
+        </a>
+      </li>
+    </ul>
+  </nav>
+</body>
+
+</html>

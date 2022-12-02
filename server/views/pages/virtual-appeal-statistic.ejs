@@ -1,0 +1,187 @@
+<%- include("../layouts/header")%>
+
+<head>
+  <link rel="stylesheet" href="/style/virtualAppeal.css" />
+  <%if(errors){%>
+  <style>
+    input:invalid {
+      border-color: red;
+    }
+  </style>
+  <%}%>
+</head>
+
+<body>
+  <main class="container virtual-appeal inner-page-margin">
+    <div class="virtual-appeal__statics">
+      <div class="virtual-appeal-togglers">
+        <a
+          href="/uz/virtual-appeals"
+          class="virtual-appeal__page-btn mr-16 virtual-appeal__page-btn-non-active"
+          data-type="appeal"
+          >Murojaatni yuborish uchun ariza</a
+        >
+        <a
+          href="/uz/virtual-appeals/statistics"
+          class="virtual-appeal__page-btn virtual-appeal__page-btn-active"
+          data-type="statistic"
+          >Statistika va murojaat holatini tekshirish</a
+        >
+      </div>
+      <div class="flex gap-30 center mt-54">
+        <!-- APPLICATIONS ACCEPTED -->
+        <div class="virtual-appeal__statics__box__item flex center justify-s-b">
+          <div>
+            <span class="text-four">Qabul qilingan arizalar</span>
+            <span class="virtual-appeal__statics__text heading-secondary">
+              <%=totalVirtualAppeals?totalVirtualAppeals:0%>
+            </span>
+          </div>
+
+          <div
+            class="virtual-appeal__statics__icon-box virtual-appeal__statics__accepted flex center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="#738699"
+              class="w-5 h-5 virtual-appeal__statics__icon"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.5 2A1.5 1.5 0 003 3.5v13A1.5 1.5 0 004.5 18h11a1.5 1.5 0 001.5-1.5V7.621a1.5 1.5 0 00-.44-1.06l-4.12-4.122A1.5 1.5 0 0011.378 2H4.5zm4.75 6.75a.75.75 0 011.5 0v2.546l.943-1.048a.75.75 0 011.114 1.004l-2.25 2.5a.75.75 0 01-1.114 0l-2.25-2.5a.75.75 0 111.114-1.004l.943 1.048V8.75z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+        <!-- UNDER CONSIDERATION -->
+        <div class="virtual-appeal__statics__box__item flex justify-s-b">
+          <div>
+            <span class="text-four">Ko'rib chiqilmoqda</span>
+            <span class="virtual-appeal__statics__text heading-secondary">
+              <%=appealStatistics.INPROGRESS?appealStatistics.INPROGRESS:0%>
+            </span>
+          </div>
+          <div
+            class="flex center virtual-appeal__statics__waiting virtual-appeal__statics__icon-box"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="#2F80ED"
+              class="w-5 h-5 virtual-appeal__statics__icon"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+        <!-- IMPLEMENTED -->
+        <div class="virtual-appeal__statics__box__item flex justify-s-b">
+          <div>
+            <span class="text-four">Amalga oshirildi</span>
+            <span class="virtual-appeal__statics__text heading-secondary">
+              <%=appealStatistics.DONE?appealStatistics.DONE:0%>
+            </span>
+          </div>
+          <div
+            class="flex center virtual-appeal__statics__done virtual-appeal__statics__icon-box"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="#04D65D"
+              class="w-6 h-6 virtual-appeal__statics__icon"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9 1.5H5.625c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0016.5 9h-1.875a1.875 1.875 0 01-1.875-1.875V5.25A3.75 3.75 0 009 1.5zm6.61 10.936a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 14.47a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                clip-rule="evenodd"
+              />
+              <path
+                d="M12.971 1.816A5.23 5.23 0 0114.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 013.434 1.279 9.768 9.768 0 00-6.963-6.963z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <p class="heading-secondary mt-30 mb-24">Ariza holatini tekshirish</p>
+      <!-- CHECK APPLICATION STATUS SECTION -->
+      <div class="virtual-appeal__statics__check-status">
+        <p>
+          Arizangiz holatini tekshirish uchun sizga taqdim etilgan parolni
+          kiriting
+        </p>
+        <form action="/uz/virtual-appeals/check-status" method="post">
+          <div class="virtual-appeal__statics__check-status__input">
+            <%if(errors.appealCode){%>
+            <p class="error-message"><%=errors.appealCode%></p>
+            <%}%>
+            <input
+              class="virtual-appeal__input virtual-appeal__date-input mr-16"
+              type="text"
+              placeholder="Parol"
+              name="appealCode"
+              required
+              value="<%=appealCode%>"
+              oninvalid="this.setCustomValidity(`Parol kiritish majburiy!`)"
+              oninput="this.setCustomValidity('')"
+            />
+            <button class="virtual-appeal__send mt-20">Yuborish</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- MODAL -->
+    <div
+      class="virtual-appeal__modal <%= status==='success'?'modal-block':'modal-none'%>"
+    >
+      <div class="virtual-appeal__modal__content">
+        <%if( applicantAppealStatus==="NEW" ||
+        applicantAppealStatus==="ACCEPTED" ){%>
+        <h3 class="virtual-appeal__modal__parol-text">
+          Sizning murojaatingiz qabul qilindi adminlar yaqin orada ko'rib
+          chiqadi!
+        </h3>
+        <%}%> <%if( applicantAppealStatus==="INPROGRESS" ){%>
+        <h3 class="virtual-appeal__modal__parol-text">
+          Sizning murojaatingiz ko'rib chiqilmoqda!!
+        </h3>
+        <%}%> <%if( applicantAppealStatus==="DONE" ){%>
+        <h3 class="virtual-appeal__modal__parol-text">
+          Sizning murojaatingiz ko'rib chiqildi!!
+        </h3>
+        <%if(applicantAppealAnswer){%>
+        <p><%=applicantAppealAnswer%></p>
+        <%}%> <%if(appealAnswerFile){%>
+        <a
+          href="/uploads/<%=appealAnswerFile%>"
+          download=""
+          target="_blank"
+          class="admin-panel-inner-pg__btn answer-file-success"
+          style="margin-top: 10px"
+        >
+          <img
+            src="/assets/img/fileIcon.svg"
+            width="100%"
+            height="100%"
+            class="admin-panel-inner-pg__img mt-20"
+          />
+          <p>Fayl</p>
+        </a>
+
+        <%}%> <%}%>
+        <a href="/uz/virtual-appeals/statistics">
+          <button class="virtual-appeal__modal__close">Ok</button>
+        </a>
+      </div>
+    </div>
+  </main>
+  <script src="/js/virtualAppealStatistic.js"></script>
+</body>
+<%- include("../layouts/footer")%>

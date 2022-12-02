@@ -1,0 +1,95 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto-Regular.ttf");
+  font-style: 400;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto-Bold.ttf");
+  font-style: 700;
+}
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  box-sizing: border-box;
+}
+
+.grid-2-cols {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.login__pic-side {
+  background-image: url("../assets/img/woodd.png");
+  width: 70rem;
+  height: 100vh;
+  background-size: cover;
+  text-align: center;
+  padding: 3rem 1rem 1rem 2rem;
+}
+.login__pic-side__title {
+  font-weight: 600;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-top: 2rem;
+  text-align: center;
+}
+.login__pic-side__img {
+  margin-top: 10rem;
+  width: 20rem;
+  height: 20rem;
+}
+.login__title {
+  font-size: 4rem;
+  font-family: "Roboto", serif;
+  font-weight: 500;
+  color: #008024;
+}
+.login__form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login__form__input {
+  width: 25rem;
+  display: block;
+  padding: 1rem 1.5rem;
+  margin-top: 2rem;
+  border: 1px solid #008024;
+  border-radius: 0.4rem;
+  color: #003475;
+}
+.login__form__input ::placeholder {
+  color: #003475;
+}
+.login__form__btn {
+  border: none;
+  padding: 1.8rem;
+  background-color: #008024;
+  border-radius: 10px;
+  color: #FFFFFF;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+
+.error-message{
+  margin-top: 1rem;
+  color: red;
+}

@@ -1,0 +1,54 @@
+<body>
+
+<div class="admin-panel">
+
+  <%- include("../../../layouts-admin/sidebar") %>
+  <main class="admin-panel__main">
+
+    <%- include("../../../layouts-admin/header") %>
+
+    <div class="admin-page-inner">
+
+      <form action="/admin/menu/edit/<%= byId.id %>" method="post">
+
+        <h2 class="admin-panel__main__content__text">Menyuni yangilash</h2>
+
+        <label class="admin-page-inner__label">
+          <p>O'zbek tilidagi menyu</p>
+          <input class="admin-page-inner__input" type="text" name="nameUz"
+                 value="<%= byId.nameUz %>"/>
+        </label>
+        <label class="admin-page-inner__label">
+          <p>Меню на русском</p>
+          <input class="admin-page-inner__input" type="text" name="nameRu"
+                 value="<%= byId.nameRu %>"/>
+        </label>
+        <label class="admin-page-inner__label">
+          <p>Menu in english</p>
+          <input class="admin-page-inner__input" type="text" name="nameEn"
+                 value="<%= byId.nameEn %>"/>
+        </label>
+        <label class="admin-page-inner__label">
+        <p>Menyu</p>
+          <select class="admin-page-inner__select" name="parentId">
+            <%#console.log(allMenus)%>
+            <%const menuForSelect =allMenus.filter(e => e.id === byId.parentId)[0]%>
+            <option value="<%=byId.parentId%>">UZ: <%= menuForSelect?.name_uz %> RU: <%= menuForSelect?.name_ru %> EN: <%= menuForSelect?.name_en %></option>
+            <% if(allMenus.length > 0){allMenus.filter(m => m.id !== byId.id&&m.id !== byId.parentId).filter(menu => { %>
+
+              <option value="<%=  byId.parentId=menu.id %>">UZ: <%= menu?.name_uz %> RU: <%= menu?.name_ru %> EN:<%= menu?.name_en %></option>
+            <% })} %>
+          </select>
+        </label>
+        <div class="admin-page-inner__btns">
+          <a class="btn admin-page-inner__btns__cancel" href="/admin/menu/?page=1&size=6">Bekor qilish</a>
+          <button class="btn admin-page-inner__btns__save">Saqlash</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+
+</body>
+<script src="/js/admin.js"></script>
+

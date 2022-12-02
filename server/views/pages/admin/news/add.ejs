@@ -1,0 +1,118 @@
+<!doctype html>
+<head>
+    <script src="./scripts/tinymce_6.2.0/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="application/javascript" src="scripts/tinymce_6.2.0/tinymce/js/tinymce/tinymce.min.js"></script>
+    <title></title>
+    <link rel="stylesheet" href="/style/adminCss.css"/>
+
+</head>
+
+<body>
+
+<div class="admin-panel-post">
+
+    <%- include("../../../layouts-admin/sidebar") %>
+    <main class="admin-panel__main">
+
+        <%- include("../../../layouts-admin/header") %>
+
+        <div class="page-inner">
+
+            <form action="/admin/press-center/news/add" method="post">
+
+                <h2 class="admin-panel__main__content__text">Yangilik qo'shish</h2>
+                <input type="hidden" name="type" value="NEWS">
+                <input type="text" hidden value="" name="contentAttachments" class="content-attachments">
+
+                <p class="svg-text">Yangilik bannerini tanlang</p>
+                <label class="image-input-label" >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-6 h-6 svg-input">
+
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
+                    </svg>
+
+                    <input type="file" hidden class="banner-upload" value='' required>
+
+                    <img class="image-input" alt="" hidden >
+                </label>
+                <input type="text" hidden class="hidden-input" name="bannerId" required
+                       oninvalid="this.setCustomValidity(`Rasm tanlash majburiy!`)"
+                       oninput="this.setCustomValidity('')">
+
+                <label class="admin-page-inner__label">
+                    O'zbek tilidagi yangilik
+                    <input class="admin-page-inner__input " name="titleUz" type="text"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+
+                    />
+                    <textarea id="myTextarea" name="textUz"
+                    ></textarea>
+                </label>
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Sarlavha" || "Maqola")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+                <label class="admin-page-inner__label ">
+                    Страница на русском
+                    <input name="titleRu" type="text" class="admin-page-inner__input"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    />
+
+                    <textarea id="myTextarea" name="textRu"
+
+                    ></textarea>
+                </label>
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Добавьте" || "Добавьте")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+                <label class="admin-page-inner__label">
+                    Page in english
+                    <input name="titleEn" type="text" class="admin-page-inner__input"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    />
+
+                    <textarea id="myTextarea" name="textEn"
+                    ></textarea>
+                </label>
+
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Title" || "Text")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+
+                <div class="page-inner__btns">
+                    <a class="btn admin-page-inner__btns__cancel"
+                       href="/admin/press-center/news/?page=1&size=6">Bekor qilish</a>
+
+                    <button type="submit" class="btn admin-page-inner__btns__save">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+
+<!--//////////////////////////////////////-->
+<script src="https://cdn.tiny.cloud/1/8gaiefqk6kkqws6okaw27xqwk113tyskyc15huaqpccbjclw/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+<script src="/js/admin.js"></script>
+
+<script type="text/javascript" src="/js/tinyMce.js">
+
+<script type="text/javascript" src="/js/fileUploader.js">
+
+</script>
+
+</body>

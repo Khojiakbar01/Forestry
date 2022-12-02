@@ -1,0 +1,97 @@
+<!doctype html>
+<head>
+    <script src="./scripts/tinymce_6.2.0/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="application/javascript" src="scripts/tinymce_6.2.0/tinymce/js/tinymce/tinymce.min.js"></script>
+    <title></title>
+</head>
+
+<body>
+
+<div class="admin-panel-post">
+
+    <%- include("../../../layouts-admin/sidebar") %>
+    <main class="admin-panel__main">
+
+        <%- include("../../../layouts-admin/header") %>
+
+        <div class="page-inner">
+
+            <form action="/admin/press-center/events/add" method="post">
+
+                <h2 class="admin-panel__main__content__text">Voqea qo'shish</h2>
+                <input type="hidden" name="type" value="EVENTS">
+
+                <label class="admin-page-inner__label">
+                    O'zbek tilidagi voqea
+                    <input class="admin-page-inner__input " name="titleUz" type="text"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+
+                    />
+                    <textarea id="myTextarea" name="textUz"
+                    ></textarea>
+                </label>
+                <!--                    <div id="editor" ></div>-->
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Sarlavha" || "Maqola")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+                <label class="admin-page-inner__label ">
+                    Событие на русском
+                    <input name="titleRu" type="text" class="admin-page-inner__input"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    />
+
+                    <textarea id="myTextarea" name="textRu"
+
+                    ></textarea>
+                </label>
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Добавьте" || "Добавьте")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+                <label class="admin-page-inner__label">
+                    Event in english
+                    <input name="titleEn" type="text" class="admin-page-inner__input"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    />
+
+                    <textarea id="myTextarea" name="textEn"
+                    ></textarea>
+                </label>
+
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Title" || "Text")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+
+
+                <div class="page-inner__btns">
+                    <a class="btn admin-page-inner__btns__cancel" href="/admin/press-center/events/?page=1&size=6">Bekor qilish</a>
+
+                    <button type="submit" class="btn admin-page-inner__btns__save">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+
+<!--//////////////////////////////////////-->
+<script src="https://cdn.tiny.cloud/1/8gaiefqk6kkqws6okaw27xqwk113tyskyc15huaqpccbjclw/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+<script src="/js/admin.js"></script>
+<script type="text/javascript" src="/js/tinyMce.js">
+<script type="text/javascript" src="/js/fileUploader.js">
+
+</script>
+
+</body>

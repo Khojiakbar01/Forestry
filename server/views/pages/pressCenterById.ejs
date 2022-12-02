@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/style/adminCss.css">
+    <script src="/js/lazy-loading.js"></script>
+
+</head>
+
+</html>
+
+<%- include("../layouts/header") %>
+
+
+<body>
+<main>
+
+    <div class="">
+
+        <div class="container flex-by-id">
+            <div>
+
+                <!--SIDEBAR-->
+                <p class="text-secondary main-page-inner-page-secondary-title"><%=pressCenterHeader%> </p>
+
+                <ul class="card">
+                    <li><a href="/<%=lang%>/press-center/news/?page=1&size=9" class="<%=pressCenterType==='news'?"text-four pages-list active":"text-four pages-list"%>"><%=lang === 'uz' ? 'Yangiliklar' : lang === 'ru' ? 'Новости' : lang === 'en' ? 'News' : ''%></a></li>
+                    <li><a href="/<%=lang%>/press-center/events/?page=1&size=9" class="<%=pressCenterType==='events'?"text-four pages-list active":"text-four pages-list"%>"><%=lang === 'uz' ? `E'lon va voqealar` : lang === 'ru' ? 'Объявления и события' : lang === 'en' ? 'Announcements and events' : ''%></a></li>
+                    <li><a href="/<%=lang%>/press-center/tenders/?page=1&size=9" class="<%=pressCenterType==='tenders'?"text-four pages-list active":"text-four pages-list"%>"><%=lang === 'uz' ? 'Tender va xaridlar' : lang === 'ru' ? 'Тендеры и закупки' : lang === 'en' ? 'Tenders and purchases' : ''%></a>
+                    </li>
+                    <li><a href="/<%=lang%>/photo-gallery" class="pages-list text-four"><%=lang === 'uz' ? 'Fotogalareya' : lang === 'ru' ? 'Фотогаларея' : lang === 'en' ? 'Photo gallery' : ''%></a></li>
+                    <li><a href="/<%=lang%>/video-gallery" class="pages-list text-four "><%=lang === 'uz' ? 'Videogalareya' : lang === 'ru' ? 'Видеогаларея' : lang === 'en' ? 'Video gallery' : ''%></a></li>
+                    <li><a href="/<%=lang%>/contact-the-press-service" class="pages-list text-four"><%=lang === 'uz' ? 'Matbuot xizmati bilan bog‘lanish' : lang === 'ru' ? 'Связаться с пресс-службой' : lang === 'en' ? 'Contact the press service' : ''%></a></li>
+                    <li><a href="/<%=lang%>/faqs" class="pages-list text-four"><%=lang === 'uz' ? 'Savol va javoblar' : lang === 'ru' ? 'Вопросы и ответы' : lang === 'en' ? 'Questions and answers' : ''%></a></li>
+                    <li><a href="/<%=lang%>/management-lectures" class="pages-list text-four"><%=lang === 'uz' ? `Rahbariyat ma'ruzalari` : lang === 'ru' ? 'Лекции по лидерству' : lang === 'en' ? 'Leadership lectures' : ''%></a></li>
+                    <li><a href="#" class="pages-list text-four"><%=lang === 'uz' ? `Qo'mita rahbariyatining rasmiy chiqishi` : lang === 'ru' ? 'Официальное заявление руководства комитета' : lang === 'en' ? `Official statement from the committee's leadership` : ''%></a></li>
+                </ul>
+                <!--SIDEBAR-->
+            </div>
+            <div class="by-id-content">
+
+            <div class="flex-title">
+                <div class="mb-16">
+                    <a href='/<%=lang%>/' class="navigate-text"><%=lang === 'uz' ? 'Asosiy' : lang === 'ru' ? 'Главный' : lang === 'en' ? 'Main' : ''%></a>
+
+                    <span class="navigate-text"> > </span>
+                    <a href='/<%=lang%>/press-center/<%=pressCenterType%>/?page=1&size=9' class="navigate-text"><%=lang === 'uz' ? 'Matbuot markazi' : lang === 'ru' ? 'Пресс-центр' : lang === 'en' ? 'Press Center' : ''%></a>
+
+                    <span class="navigate-text"> > </span>
+                    <a href="/<%=lang%>/press-center/<%=pressCenterType%>/?page=1&size=9" class="navigate-text"><%=pressCenterTitle%></a>
+
+                    <span class="navigate-text"> > </span>
+                    <a href="/<%=lang%>/press-center/<%=pressCenterType%>/<%=byId.id%>" class="navigate-text"><%= byId.title.length<15?byId.title:byId.title.split(' ').slice(0,2).join(' ')+ `...`%></a>
+
+
+                </div>
+
+                <div class="flex gap-20">
+                    <p class="navigate-text news__all-card__calendar">
+                        <img
+                                class=" "
+                                src="/assets/img/calendar.svg"
+                        />
+                        <% const dateNew = new Date(byId.createdAt); %>
+
+                        <%= dateNew.getDate() + '/' + dateNew.getMonth() + '/' + dateNew.getFullYear() %>
+                    </p>
+                    <p class="navigate-text news__all-card__calendar">
+                        <img
+                                class="smnews__all-card__calendar mr-10"
+                                src="/assets/img/grey-eye.svg"
+                                alt=""
+                        />
+
+                        <span class="news__small-card__calendar-text"> <%= byId.viewersCount %></span>
+                    </p>
+                </div>
+            </div>
+            <div class="flex-by-id">
+
+            </div>
+
+
+            <h1 class="mb-24 heading-primary "><%= byId.title %></h1>
+
+            <div class="press-center-image">
+
+                <% if(pressCenterType === 'news'){ %>
+                    <img src=/assets/img/lazy-loading.jpg data-src=/uploads/<%= imageName %> alt=""
+                         class="inner-page-image lazy ">
+                <% }else{ %>
+                    <img class="inner-page-image lazy " src=/assets/img/lazy-loading.jpg
+                         data-src="/assets/img/banner.jpg"
+                         alt="">
+
+                <% } %>
+
+            </div>
+
+
+            <div class="press-center-content mt-20"><%- byId.text %> </div>
+
+            <% if(pressCenterType === 'tenders' && fileName){ %>
+                <a href=/uploads/<%= fileName %>  class="press-center-file " value="" download>
+
+                    <img src="/assets/img/tender-file.svg" alt="" class="file-input-label-view mt-20"
+                         >
+
+                    <p  style="font-size: 14px"><%=fileTitle%></p>
+
+                </a>
+            <% } %>
+            </div>
+
+        </div>
+    </div>
+</main>
+<script src="/js/fileUploader.js"></script>
+</body>
+<%- include("../layouts/footer") %>

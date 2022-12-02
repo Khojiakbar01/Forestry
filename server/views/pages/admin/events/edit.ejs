@@ -1,0 +1,92 @@
+<!doctype html>
+<head>
+    <script src="./scripts/tinymce_6.2.0/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="application/javascript" src="scripts/tinymce_6.2.0/tinymce/js/tinymce/tinymce.min.js"></script>
+
+    <title></title>
+</head>
+
+<body>
+
+<div class="admin-panel-post">
+
+    <%- include("../../../layouts-admin/sidebar") %>
+    <main class="admin-panel__main">
+
+        <%- include("../../../layouts-admin/header") %>
+
+        <div class="page-inner">
+
+            <form action="/admin/press-center/events/edit/<%= byId.id %>" method="post">
+
+                <input type="hidden" name="type" value="EVENTS">
+
+                <h2 class="admin-panel__main__content__text">Hodisani yangilash</h2>
+
+                <label class="admin-page-inner__label">
+                    O'zbek tilidagi voqea
+                    <input class="admin-page-inner__input "
+                           name="titleUz"
+                           type="text"
+                           value="<%= byId.titleUz %>"
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    />
+                    <textarea id="myTextarea" name="textUz">
+                      <%= byId.textUz %>
+                    </textarea>
+                </label>
+                <label class="admin-page-inner__label ">
+                    Событие на русском
+                    <input name="titleRu" type="text" class="admin-page-inner__input"
+                           value="<%= byId.titleRu %>"
+
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    />
+
+                    <textarea id="myTextarea" name="textRu"
+
+                    ><%= byId.textRu %></textarea>
+                </label>
+
+                <label class="admin-page-inner__label">
+                    Events in english
+                    <input name="titleEn" type="text" class="admin-page-inner__input"
+                           value="<%= byId.titleEn %>"
+
+                           required
+                           oninvalid="this.setCustomValidity(`Sarlavha kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    />
+
+                    <textarea id="myTextarea" name="textEn"
+                    ><%= byId.textEn %></textarea>
+                </label>
+
+
+                <div class="page-inner__btns">
+                    <a class="btn admin-page-inner__btns__cancel"
+                       href="/admin/press-center/events/?page=1&size=6">Bekor qilish</a>
+
+                    <button type="submit" class="btn admin-page-inner__btns__save">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+
+<!--//////////////////////////////////////-->
+<script src="https://cdn.tiny.cloud/1/8gaiefqk6kkqws6okaw27xqwk113tyskyc15huaqpccbjclw/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+<script src="/js/admin.js"></script>
+<script type="text/javascript" src="/js/tinyMce.js">
+
+<script type="text/javascript" src="/js/fileUploader.js">
+
+</script>
+
+</body>

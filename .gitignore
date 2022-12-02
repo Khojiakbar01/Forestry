@@ -1,0 +1,8 @@
+client/node_modules
+server/node_modules
+.idea
+server/.env.dev
+client/.env
+server/static/uploads
+
+

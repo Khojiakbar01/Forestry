@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style/login.css" />
+    <title>Login</title>
+  </head>
+
+  <body>
+    <main class="grid grid-2-cols login">
+      <div class="login__pic-side">
+        <div>
+          <img
+            class="login__pic-side__img"
+            src="/assets/img/gerb.svg"
+            alt="gerb"
+          />
+          <p class="login__pic-side__title">
+            O‘zbekiston Respublikasi O‘rmon Xo‘jaligi Davlat Qo‘mitasining
+            Rasmiy Veb Sayti
+          </p>
+        </div>
+      </div>
+      <div class="login__form">
+        <form action="/login" method="post">
+          <p class="login__title">Login</p>
+
+          <% if (message.length > 0) { %>
+          <div class="error-message"><%- message %></div>
+          <% } %>
+
+          <input
+            class="login__form__input"
+            type="text"
+            placeholder="Login"
+            name="username"
+          />
+          <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+          %> <% let err = ""; if (errors[i].includes("Username")) err =
+          errors[i] %>
+          <p class="error-message"><%= err %></p>
+          <% } } %>
+          <input
+            class="login__form__input"
+            type="password"
+            placeholder="Parol"
+            name="password"
+          />
+
+          <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+          %> <% let err = ""; if (errors[i].includes("Password")) err =
+          errors[i] %>
+          <p class="error-message"><%= err %></p>
+          <% } } %>
+
+          <button type="submit" class="login__form__btn">Kirish</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

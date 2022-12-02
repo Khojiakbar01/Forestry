@@ -1,0 +1,89 @@
+<!doctype html>
+<body>
+
+<div class="admin-panel">
+
+    <%- include("../../../layouts-admin/sidebar") %>
+    <main class="admin-panel__main">
+
+        <%- include("../../../layouts-admin/header") %>
+
+        <div class="admin-page-inner">
+
+            <form action="/admin/menu/add" method="post">
+
+                <h2 class="admin-panel__main__content__text">Menyuni qo'shish</h2>
+
+                <p style="color: red"><%=errors%></p>
+                <label class="admin-page-inner__label">
+                   <p>O'zbek tilidagi menyu</p>
+                    <input class="admin-page-inner__input" name="nameUz" type="text"
+                           value="<%=data?data.nameUz:''%>"
+                           required
+                           oninvalid="this.setCustomValidity(`Menyu kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    >
+                </label>
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Menyu")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+                <label class="admin-page-inner__label">
+                 <p>Меню на русском</p>
+                    <input name="nameRu" type="text" class="admin-page-inner__input"
+                           value="<%=data?data.nameRu:''%>"
+
+                           required
+                           oninvalid="this.setCustomValidity(`Menyu kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    >
+                </label>
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Название")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+                <label class="admin-page-inner__label">
+                 <p>Menu in english</p>
+                    <input name="nameEn" type="text" class="admin-page-inner__input"
+                           value="<%=data?data.nameEn:''%>"
+
+                           required
+                           oninvalid="this.setCustomValidity(`Menyu kiritish majburiy!`)"
+                           oninput="this.setCustomValidity('')"
+                    >
+                </label>
+                <% if(errors?.length > 0){ %> <% for(let i = 0;i < errors.length;i++){
+                %> <% let err = ""; if (errors[i].includes("Menu")) err =
+                        errors[i] %>
+                <p class="error-message"><%= err %></p>
+                <% } } %>
+
+                <label class="admin-page-inner__label">
+                 <p>Menyu</p>
+
+                    <select name="parentId" class="admin-page-inner__select">
+                        <option></option>
+                        <% if(allMenus.length > 0){allMenus.map(menu => { %>
+                            <option value="<%= menu.id %>"> Uz: <%= menu.name_uz %> Ru: <%= menu.name_ru %>
+                                En: <%= menu.name_en %></option>
+                        <% })} %>
+
+                    </select>
+                </label>
+                <div class="admin-page-inner__btns">
+                    <a class="btn admin-page-inner__btns__cancel" href="/admin/menu/?page=1&size=6">Bekor qilish</a>
+
+                    <button type="submit" class="btn admin-page-inner__btns__save">Saqlash</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+<script src="/js/admin.js"></script>
+
+
+
+

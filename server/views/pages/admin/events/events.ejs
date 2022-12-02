@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/style/adminCss.css"/>
+    <title>Posts</title>
+
+</head>
+<body>
+
+<div class="admin-panel">
+    <%- include("../../../layouts-admin/sidebar") %>
+
+    <main class="admin-panel__main">
+        <%- include("../../../layouts-admin/header") %>
+
+        <div class="admin-panel__main__content">
+            <div class="admin-panel__main__content__container">
+                <div class="flex justify-s-b">
+                    <p class="admin-panel__main__content__text">Voqealar ro'yxati</p>
+
+
+                    <a href="/admin/press-center/events/add" class="admin-panel__main__content__button">Yangi voqea
+                        qo'shish</a>
+                </div>
+                <% if( pagination.totalPages !== 0 && allPressCenters[0]?.type === "EVENTS"){ %>
+                    <table class="admin-panel__main__table">
+                        <thead class="admin-panel__main__table__header">
+                        <tr class="admin-panel__main__table__header__both ">
+                            <th class="admin-panel__main__table__header__menu "> Voqealar</th>
+                            <th class="admin-panel__main__table__header__actions ">Amallar</th>
+                        </tr>
+                        </thead>
+                        <% if(allPressCenters.length > 0){allPressCenters.map((pressCenter) => { %>
+                            <tr class="admin-panel__main__table__body ">
+                                <td id="<%= pressCenter.id %>" class="table-content-flex">
+                                    <div class="flex justify-s-b admin-panel__main__table__inner">
+
+                                        UZ: <%= pressCenter.titleUz %> <br>
+                                        RU: <%= pressCenter.titleRu %> <br>
+                                        EN: <%= pressCenter.titleEn %> <br>
+
+
+                                    </div>
+
+                                </td>
+
+                                <td class="admin-panel__main__table__body__active ">
+
+                                    <!--                                EDIT-->
+                                    <a href="/admin/press-center/events/edit/<%= pressCenter.id %>"
+                                       class="admin-panel__main__table__body__edit">
+                                        <img src="/assets/img/admin-panel-pen.svg" alt="edit">
+                                    </a>
+
+                                    <!--                               DELETE-->
+                                    <a href="/admin/press-center/events/delete/<%= pressCenter.id %>/?page=<%= pagination.totalPages === 1 ? pagination.page : pagination.page - 1 %>&size=6"
+                                       class="admin-panel__main__table__body__trash">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                             stroke-width="1.5"
+                                             stroke="#CC3333" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/>
+                                        </svg>
+                                    </a>
+
+
+                                </td>
+                            </tr>
+
+                        <% })} %>
+                    </table>
+
+                    <div class="admin-panel__main__pagination__box">
+                        <%# if(allPressCenters[0].type === "EVENTS"){ %>
+                        <a href="/admin/press-center/events/?page=<%= pagination.page - 1 %>&size=6"
+                           class="<%= pagination.page === 1 ? 'admin-panel__main__pagination current-sides' : 'admin-panel__main__pagination current-sides-active' %>">
+                            <img src="/assets/img/prevArrow.svg" alt="">
+                        </a>
+                        <% for(let i = 0; i < Math.ceil(pagination.count / 6);i++){ %>
+
+                            <a href="/admin/press-center/events/?page=<%= i + 1 %>&size=6"
+                               class="<%= pagination.page === i + 1 ? 'admin-panel__main__pagination current' : 'admin-panel__main__pagination' %>"><%= i + 1 %> </a>
+
+                        <% } %>
+                        <a href="/admin/press-center/events/?page=<%= pagination.page + 1 %>&size=6"
+                           class="<%= pagination.page === pagination.totalPages ? 'admin-panel__main__pagination current-sides' : 'admin-panel__main__pagination current-sides-active' %>">
+                            <img src="/assets/img/nextArrow.svg" alt="">
+
+                        </a>
+
+                    </div>
+                    <%# } %>
+
+                <% }else { %>
+                    <h1>No content</h1>
+                <% } %>
+            </div>
+            <div>
+            </div>
+
+
+        </div>
+    </main>
+</div>
+
+
+</body>
+
+
+<script src="/js/admin.js"></script>
+
+</html>

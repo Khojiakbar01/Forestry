@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+
+    <!-- PHOTO GALLERY -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.3/photoswipe.min.css">
+
+    <!-- CARUSEL -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+    <!-- VIDEO GALLERY -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/css/lg-video.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/css/lightgallery.min.css">
+
+</head>
+
+<body>
+
+    <%- include("../layouts/header")%>
+        <main class="container">
+
+            <!-- NEWS AND ANNOUNCEMENTS-->
+            <section class="mt-60">
+
+                <div class="flex gap-30">
+                    <div>
+                        <h2 class="heading-primary news">Yangiliklar</h2>
+                        <div class="flex news__big-card gap-30">
+
+                            <div>
+                                <img src="/assets/img/lazy-loading.jpg" alt="#" class="news__big-card__img lazy"
+                                    data-src="./assets/img/news1.svg">
+                            </div>
+                            <div>
+                                <div class="flex gap-30 news__small-card__icons">
+                                    <div class="flex center ">
+                                        <img class="smnews__all-card__calendar mr-10" src="assets/img/calendar.svg">
+                                        <span class="news__small-card__calendar-text">12/09/2022</span>
+                                    </div>
+
+                                    <div class="flex center mr-10">
+                                        <img class="smnews__all-card__calendar mr-10" src="assets/img/grey-eye.svg"
+                                            alt="">
+
+                                        <span class="news__small-card__calendar-text">34752</span>
+                                    </div>
+
+                                </div>
+                                <div class="news__big-card__text">
+                                    <a href="" class="heading-secondary news__big-card__text__title">O‘simlik dunyosi
+                                        tabiat
+                                        obyektlari ichida alohida va
+                                        muhim
+                                        o‘rinni
+                                        egallaydi</a>
+                                    <p class="blue-text-color mt-30 news__big-card__text__title__description">Maʼlumki,
+                                        sohada qabul
+                                        qilinayotgan
+                                        qonunlardan ko‘zlangan asosiy
+                                        maqsad
+                                        o‘simlik dunyosi
+                                        obyektlarini muhofaza qilish, ulardan foydalanish va ularni takror ko‘paytirish
+                                        sohasidagi
+                                        munosabatlarni tartibga solishdan iborat</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="flex gap-30 mt-30">
+                            <div class="news__small-card">
+                                <div>
+                                    <div> <img src="/assets/img/lazy-loading.jpg " alt=""
+                                            data-src="assets/img/news2.svg" class="lazy news__small-card__img"> </div>
+                                </div>
+                                <div>
+                                    <div class="flex gap-30 news__small-card__icons">
+                                        <div class="flex center ">
+                                            <img class="smnews__all-card__calendar mr-10" src="assets/img/calendar.svg">
+                                            <span class="news__small-card__calendar-text">12/09/2022</span>
+                                        </div>
+
+                                        <div class="flex center mr-10">
+                                            <img class="smnews__all-card__calendar mr-10" src="assets/img/grey-eye.svg"
+                                                alt="">
+
+                                            <span class="news__small-card__calendar-text">34752</span>
+                                        </div>
+
+                                    </div>
+
+                                    <a href="#" class=" additional-style news__small-card__text">
+                                        Qabul qilinayotgan hujjatlar soha rivojiga xizmat qiladi 123456789</a>
+                                </div>
+                            </div>
+
+                            <div class="news__small-card">
+                                <div>
+                                    <div> <img src="/assets/img/lazy-loading.jpg " alt=""
+                                            data-src="assets/img/news2.svg" class="news__small-card__img lazy"> </div>
+                                </div>
+                                <div>
+                                    <div class="flex gap-30 news__small-card__icons">
+                                        <div class="flex center ">
+                                            <img class="smnews__all-card__calendar mr-10" src="assets/img/calendar.svg">
+                                            <span class="news__small-card__calendar-text">12/09/2022</span>
+                                        </div>
+
+                                        <div class="flex center mr-10">
+                                            <img class="smnews__all-card__calendar mr-10" src="assets/img/grey-eye.svg"
+                                                alt="">
+
+                                            <span class="news__small-card__calendar-text">34752</span>
+                                        </div>
+
+                                    </div>
+
+
+                                    <a href="#" class=" additional-style news__small-card__text">Qabul qilinayotgan
+                                        hujjatlar
+                                        soha
+                                        rivojiga xizmat qiladi</a>
+                                </div>
+                            </div>
+
+                            <div class="news__small-card">
+                                <div>
+                                    <div>
+                                        <div> <img src="/assets/img/lazy-loading.jpg " alt=""
+                                                data-src="assets/img/news2.svg" class="news__small-card__img lazy">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex gap-30 news__small-card__icons">
+                                        <div class="flex center ">
+                                            <img class="smnews__all-card__calendar mr-10" src="assets/img/calendar.svg">
+                                            <span class="news__small-card__calendar-text">12/09/2022</span>
+                                        </div>
+
+                                        <div class="flex center mr-10">
+                                            <img class="smnews__all-card__calendar mr-10 " src="assets/img/grey-eye.svg"
+                                                alt="">
+
+                                            <span class="news__small-card__calendar-text">34752</span>
+                                        </div>
+
+                                    </div>
+                                    <a href="" class=" additional-style news__small-card__text">Qabul qilinayotgan
+                                        hujjatlar
+                                        soha
+                                        rivojiga xizmat qiladi</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="announcements__button__link mt-30">
+                            <a href="/uz/news" class="announcements__button__link">Barcha yangiliklar
+                                <img src="assets/img/arrow-right.png" alt="#" class="news__arrow-rigth">
+                            </a>
+                        </div>
+
+                    </div>
+                    <div>
+                        <p class="heading-primary announcements">E'lonlar</p>
+                        <div class="mt-30">
+                            <div class="flex gap-30 news__small-card__icons">
+                                <div class="flex center ">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/calendar.svg">
+                                    <span class="news__small-card__calendar-text">12/09/2022</span>
+                                </div>
+
+                                <div class="flex center mr-10">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/grey-eye.svg" alt="">
+
+                                    <span class="news__small-card__calendar-text">34752</span>
+                                </div>
+
+                            </div>
+                            <div class="blue-text-color  announcements__card bold">
+                                <p class="announcements__text">Dukkakli-don ekinlarning tashqi muhitga talabiga
+                                    asoslanib
+                                    yetishtirish
+                                    texnologiyasi</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-30">
+                            <div class="flex gap-30 news__small-card__icons">
+                                <div class="flex center ">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/calendar.svg">
+                                    <span class="news__small-card__calendar-text">12/09/2022</span>
+                                </div>
+
+                                <div class="flex center mr-10">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/grey-eye.svg" alt="">
+
+                                    <span class="news__small-card__calendar-text">34752</span>
+                                </div>
+
+                            </div>
+                            <div class="blue-text-color  announcements__card bold">
+                                <p class="announcements__text">Dukkakli-don ekinlarning tashqi muhitga talabiga
+                                    asoslanib
+                                    yetishtirish
+                                    texnologiyasi</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-30">
+                            <div class="flex gap-30 news__small-card__icons">
+                                <div class="flex center ">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/calendar.svg">
+                                    <span class="news__small-card__calendar-text">12/09/2022</span>
+                                </div>
+
+                                <div class="flex center mr-10">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/grey-eye.svg" alt="">
+
+                                    <span class="news__small-card__calendar-text">34752</span>
+                                </div>
+
+                            </div>
+                            <div class="blue-text-color  announcements__card bold">
+                                <p class="announcements__text">Dukkakli-don ekinlarning tashqi muhitga talabiga
+                                    asoslanib
+                                    yetishtirish
+                                    texnologiyasi</p>
+                            </div>
+                        </div>
+
+
+                        <div class="mt-30">
+                            <div class="flex gap-30 news__small-card__icons">
+                                <div class="flex center ">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/calendar.svg">
+                                    <span class="news__small-card__calendar-text">12/09/2022</span>
+                                </div>
+
+                                <div class="flex center mr-10">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/grey-eye.svg" alt="">
+
+                                    <span class="news__small-card__calendar-text">34752</span>
+                                </div>
+
+                            </div>
+                            <div class="blue-text-color  announcements__card bold">
+                                <p class="announcements__text">Dukkakli-don ekinlarning tashqi muhitga talabiga
+                                    asoslanib
+                                    yetishtirish
+                                    texnologiyasi</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-30">
+                            <div class="flex gap-30 news__small-card__icons">
+                                <div class="flex center ">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/calendar.svg">
+                                    <span class="news__small-card__calendar-text">12/09/2022</span>
+                                </div>
+
+                                <div class="flex center mr-10">
+                                    <img class="smnews__all-card__calendar mr-10" src="assets/img/grey-eye.svg" alt="">
+
+                                    <span class="news__small-card__calendar-text">34752</span>
+                                </div>
+
+                            </div>
+                            <div class="blue-text-color  announcements__card bold">
+                                <p class="announcements__text">Dukkakli-don ekinlarning tashqi muhitga talabiga
+                                    asoslanib
+                                    yetishtirish
+                                    texnologiyasi</p>
+                            </div>
+                        </div>
+
+
+                        <div class="announcements__button__link  mt-30">
+                            <a href="/uz/announcements" class="announcements__button__link">Barcha e'lonlar
+                                <img src="assets/img/arrow-right.png" alt="#" class="news__arrow-rigth">
+                            </a>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- INFORMATION -->
+
+            <section class="mt-100  information ">
+                <p class="heading-primary">Ma’lumotlar</p>
+                <div class="information__box grid grid-3-column gap-30">
+
+
+                    <a href="" class="flex center mt-54 information__box__card">
+                        <div class="information__box__crc circle center">
+                            <img src="assets/img/openness.svg" alt="" class="information__box__crc__img">
+                        </div>
+                        <span class="information__box__text heading-secondary">Ochiqlik</span>
+                    </a>
+
+                    <a href="/uz/ecotourism" class="flex center mt-54 information__box__card">
+                        <div class="information__box__crc circle center">
+                            <img src="assets/img/ecotourism.svg" alt="" class="information__box__crc__img">
+                        </div>
+                        <span class="heading-secondary information__box__text">Ekoturizm</span>
+                    </a>
+
+                    <a href="" class="flex center mt-54 information__box__card">
+                        <div class="information__box__crc circle center">
+                            <img src="assets/img/tips.svg" alt="" class="information__box__crc__img">
+                        </div>
+                        <span class="heading-secondary information__box__text">Foydali maslahatlar</span>
+                    </a>
+
+                    <a href="/uz/corruption" class="flex center mt-54 information__box__card">
+                        <div class="information__box__crc circle center">
+                            <img src="assets/img/openness.svg" alt="" class="information__box__crc__img">
+                        </div>
+                        <span href="#" class="heading-secondary information__box__text">Korrupsiyaga qarshi
+                            kurash</span>
+
+                    </a>
+
+
+                    <a href="" class="flex center mt-54 information__box__card">
+                        <div class="information__box__crc circle center">
+                            <img src="assets/img/scientificActivity.svg" alt="" class="information__box__crc__img">
+                        </div>
+                        <span class=" heading-secondary information__box__text">Ilmiy faoliyat</span>
+                    </a>
+
+
+                    <a href="/uz/e-government" class=" flex center mt-54 information__box__card">
+                        <div class="information__box__crc circle center">
+                            <img src="assets/img/goverment.svg" alt="" class="information__box__crc__img">
+                        </div>
+                        <span class="heading-secondary information__box__text">Elektron hukumat</span>
+
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- MEDIA -->
+            <section class="mt-100 media">
+                <div class="flex media__header">
+                    <h2 class="heading-primary">Media</h2>
+                    <div class="flex gap-30 media__togglers">
+                        <button data-type="photo"
+                            class="btn full-btn media__header__photo-gallery-btn">Fotogalereya</button>
+                        <button data-type="video"
+                            class="btn border-btn media__header__video-gallery-btn">Videogalereya</button>
+                    </div>
+                </div>
+
+                <div class="media__photo-gallery">
+
+                    <div class="flex gap-30 media__photo-gallery__card" id="my-gallery">
+
+                        <a href="assets/img/media1-1.png" class="media__photo-gallery__item" data-pswp-width="800"
+                            data-pswp-height="500" target="_blank">
+                            <img src="/assets/img/lazy-loading.jpg " alt="" data-src="assets/img/media1-1.png"
+                                class="lazy photo-card-big-img " />
+                        </a>
+
+                        <a href=" assets/img/media2-2.png" class="media__photo-gallery__item" data-pswp-width="800"
+                            data-pswp-height="500" target="_blank">
+                            <img src="/assets/img/lazy-loading.jpg " alt="" data-src="assets/img/media2-2.png"
+                                class="lazy photo-card-big-img " />
+                        </a>
+
+
+                        <a href=" assets/img/media3-3.png" class="media__photo-gallery__item" data-pswp-width="800"
+                            data-pswp-height="500" target="_blank" class="lazy">
+                            <img src="/assets/img/lazy-loading.jpg " data-src="assets/img/media3-3.png" class=" photo-card-big-img lazy"
+                                alt="" />
+                        </a>
+
+
+                        <a href="assets/img/media4-4.png" class="media__photo-gallery__item" data-pswp-width="800"
+                            data-pswp-height="500" target="_blank">
+                            <img src="/assets/img/lazy-loading.jpg " data-src="assets/img/media4-4.png" alt=""
+                                class="lazy  photo-card-small-img" />
+                        </a>
+
+                        <a href="assets/img/media5-5.png" class="media__photo-gallery__item" data-pswp-width="800"
+                            data-pswp-height="500" target="_blank">
+                            <img src="/assets/img/lazy-loading.jpg " class="lazy  photo-card-small-img" data-src="assets/img/media5-5.png"
+                                alt="" />
+                        </a>
+
+
+                        <a href="assets/img/media6-6.png" class="media__photo-gallery__item" data-pswp-width="800"
+                            data-pswp-height="500" target="_blank">
+                            <img src="/assets/img/lazy-loading.jpg " data-src="assets/img/media6-6.png" class="lazy  photo-card-small-img" />
+                        </a>
+
+
+
+                        <div class="media__link-btn">
+                            <a href="/uz/photo-gallery" class="media__link-btn__text flex">Barchasi
+                                <img src="assets/img/arrow-rigth-blue.svg" alt="#" class="media__btn__img">
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="media__video-gallery-card" id="gallery-videos-demo">
+
+                    <div class="grid media__video-gallery-card__inner">
+
+                        <a data-lg-size="1280-720" data-src="//youtu.be/ggZ9qhnF6pY"
+                            class="media__video-gallery-card__item  media__video-gallery-card__big-video"
+                            data-poster="https://img.youtube.com/vi/ggZ9qhnF6pY/0.jpg"
+                            data-sub-html="<h4>O'zbekiton Respublikasi O'rmon xo'jaligi</h4> ">
+                            <img width="410" height="280" class="img-responsive lazy"
+                                data-src="https://img.youtube.com/vi/ggZ9qhnF6pY/0.jpg"
+                                src="/assets/img/lazy-loading.jpg " />
+                        </a>
+
+                        <a data-lg-size="1280-720" data-src="//youtu.be/PSX8cVRtKaQ"
+                            class="media__video-gallery-card__item  media__video-gallery-card__big-video"
+                            data-poster="https://img.youtube.com/vi/PSX8cVRtKaQ/0.jpg"
+                            data-sub-html="<h4>O'zbekiton Respublikasi O'rmon xo'jaligi</h4> ">
+                            <img width="410" height="280" class="img-responsive lazy"
+                                data-src="https://img.youtube.com/vi/PSX8cVRtKaQ/0.jpg"
+                                src="/assets/img/lazy-loading.jpg " />
+                        </a>
+
+                        <a data-lg-size="1280-720" data-src="youtu.be/C-rz6Dymmg8"
+                            class="media__video-gallery-card__item  media__video-gallery-card__big-video"
+                            data-poster="https://img.youtube.com/vi/C-rz6Dymmg8/0.jpg"
+                            data-sub-html="<h4>O'zbekiton Respublikasi O'rmon xo'jaligi</h4> ">
+                            <img width="410" height="280" class="img-responsive lazy"
+                                data-src="https://img.youtube.com/vi/C-rz6Dymmg8/0.jpg"
+                                src="/assets/img/lazy-loading.jpg " />
+                        </a>
+
+                        <div class="flex gap-30">
+                            <a data-lg-size="1280-720" data-src="//youtu.be/bPPetptd7g8"
+                                class="media__video-gallery-card__item"
+                                data-poster="https://img.youtube.com/vi/bPPetptd7g8/0.jpg"
+                                data-sub-html="<h4>O'zbekiton Respublikasi O'rmon xo'jaligi</h4> ">
+                                <img width="300" height="204" class="img-responsive lazy"
+                                    src="/assets/img/lazy-loading.jpg "
+                                    data-src="https://img.youtube.com/vi/bPPetptd7g8/0.jpg" />
+                            </a>
+
+                            <a data-lg-size=" 1280-720" data-src="//youtu.be/aiI9WHqLIxU"
+                                class="media__video-gallery-card__item"
+                                data-poster="https://img.youtube.com/vi/aiI9WHqLIxU/0.jpg"
+                                data-sub-html="<h4>O'zbekiton Respublikasi O'rmon xo'jaligi</h4> ">
+                                <img width="300" height="204" class="img-responsive lazy"
+                                    src="/assets/img/lazy-loading.jpg "
+                                    data-src="https://img.youtube.com/vi/aiI9WHqLIxU/0.jpg" />
+                            </a>
+
+                            <a data-lg-size="1280-720" data-src="//youtu.be/KPMfHQKbTKo"
+                                class="media__video-gallery-card__item"
+                                data-poster="https://img.youtube.com/vi/KPMfHQKbTKo/0.jpg"
+                                data-sub-html="<h4>O'zbekiton Respublikasi O'rmon xo'jaligi</h4> ">
+                                <img width="300" height="204" class="img-responsive lazy"
+                                    src="/assets/img/lazy-loading.jpg "
+                                    data-src="https://img.youtube.com/vi/KPMfHQKbTKo/0.jpg" />
+                            </a>
+
+
+
+                            <div class=" media__link-btn">
+                                <a href="/uz/video-gallery" class="media__link-btn__text flex">Barchasi
+                                    <img src="assets/img/arrow-rigth-blue.svg" alt="#" class="media__btn__img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- STATISTICS -->
+
+            <section class="mt-100">
+                <h2 class="heading-primary statistics">Statistika</h2>
+
+                <div class="statistics__boxs flex gap-30">
+                    <div class="statistics__boxs__box blue-card">
+                        <span class="statistics__boxs__box__size">8544 </span>
+                        <span class="statistics__boxs__box__measure text-third ">gektar</span>
+                        <p class="statistics__boxs__text text-secondary">O’rmon maydonlari</p>
+                    </div>
+
+                    <div class="statistics__boxs__box blue-card">
+                        <span class="statistics__boxs__box__size">8544</span>
+                        <span class="statistics__boxs__box__measure text-third ">gektar</span>
+                        <p class="statistics__boxs__text text-secondary">O’rmon maydonlari</p>
+                    </div>
+
+
+                    <div class="statistics__boxs__box blue-card">
+                        <span class="statistics__boxs__box__size">87 </span>
+                        <span class="statistics__boxs__box__measure text-third ">gektar</span>
+                        <p class="statistics__boxs__text text-secondary">O’rmon maydonlari</p>
+                    </div>
+
+                    <div class="statistics__boxs__box blue-card">
+                        <span class="statistics__boxs__box__size">3455 </span>
+                        <span class="statistics__boxs__box__measure text-third ">gektar</span>
+                        <p class="statistics__boxs__text text-secondary">O’rmon maydonlari</p>
+                    </div>
+                </div>
+            </section>
+            <!-- CALL CENTER -->
+            <section class=" mt-100 call-center">
+                <div class="flex center call-center__text ">
+                    <img src="assets/img/call-calling.svg" alt="" class="mr-10">
+                    <p class="heading-secondary call-center__text">
+                        Iltimos, ishonch telefon xizmati
+                        sifatini
+                        baholang</p>
+                </div>
+
+                <div class="call-center__checkbox flex gap-30 center">
+                    <div>
+                        <input class="radio" type="radio" id="five" name="evaluation" value="five">
+                        <label class="text-secondary call-center__checkbox__item" for="five">5</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="four" name="evaluation" value="four" class="text-third">
+                        <label class="text-secondary call-center__checkbox__item" for="four" id="four">4</label>
+
+                    </div>
+
+                    <div>
+                        <input type="radio" id="three" name="evaluation" value="three">
+                        <label class="text-secondary call-center__checkbox__item" for="three">3</label>
+                    </div>
+
+
+                    <div>
+                        <input type="radio" id="two" name="evaluation" value="two">
+                        <label class="text-secondary call-center__checkbox__item" for="two">2</label>
+                    </div>
+                </div>
+                <div class="flex call-center__checkbox__btns center">
+                    <button class="btn full-btn">Ovoz berish</button>
+                    <button class="btn border-btn">Natijani ko’rish</button>
+                </div>
+            </section>
+
+            <!-- INTERACTIVE-SERVICE -->
+
+            <section class="mt-100">
+                <h2 class="heading-primary interactiveServices interactive-services__title">Interaktiv xizmatlar</h2>
+
+                <div class="grid grid-3-column gap-30">
+                    <a href="/uz/useful-links" class="interactive-services__boxs__item">
+                        <img src="assets/img/computer.svg" alt="" class="interactive-services__boxs__item__icon">
+                        <p class="heading-secondary interactive-services__boxs__item__text">Virtual qabulxona</p>
+                    </a>
+
+
+                    <a href="#" class="interactive-services__boxs__item">
+                        <img src="assets/img/rent.svg" alt="#" class="interactive-services__boxs__item__icon">
+                        <p class="heading-secondary interactive-services__boxs__item__text">O‘rmon fondi yerlarini
+                            ijaraga olish portali
+                        </p>
+                    </a>
+
+
+                    <a href="" class="interactive-services__boxs__item">
+                        <img src="assets/img/permit.svg" alt="#" class="interactive-services__boxs__item__icon">
+                        <p href="#" class="heading-secondary interactive-services__boxs__item__text">Ruxsatnoma olish
+                            portali</p>
+                    </a>
+
+
+                    <a href="" class="interactive-services__boxs__item">
+                        <img src="assets/img/save.svg" alt="#" class="interactive-services__boxs__item__icon">
+                        <p class="heading-secondary interactive-services__boxs__item__text">Yuklab olish uchun
+                            shakllar</p>
+                    </a>
+
+                    <a href="" class="interactive-services__boxs__item">
+                        <img src="assets/img/forum.svg" alt="#" class="interactive-services__boxs__item__icon">
+                        <p class="heading-secondary interactive-services__boxs__item__text">Forum</p>
+                    </a>
+
+
+                    <a href="" class=" interactive-services__boxs__item">
+                        <img src="assets/img/email.svg" alt="#" class="interactive-services__boxs__item__icon">
+                        <p class="heading-secondary interactive-services__boxs__item__text">Fuqarolar murojaati</p>
+                    </a>
+
+
+
+                </div>
+            </section>
+
+
+
+            <!-- DEPARTMENTS -->
+            <section class="departments mt-100">
+                <p class="heading-primary departments">Viloyat boshqarmalari</p>
+                <div class="departments__card">
+
+                    <img src="/assets/img/lazy-loading.jpg " data-src="assets/img/map.svg" alt="map"
+                        class="departments__card__img lazy">
+
+                    <div class="departments__text">
+                        <p class="heading-secondary departments__text__title">Navoiy Viloyati o‘rmon xo‘jaligi
+                            boshqarmasi</p>
+                        <span class="small-print">Direktor:</span>
+                        <p class="text-secondary medium departments__text__description">Abidov Qobiljon</p>
+                        <span class="small-print">Manzil:</span>
+                        <p class="text-secondary medium departments__text__description">Jizzax Viloyati, Jizzax
+                            shaxri, O. Azimov ko‘chasi 27 uy</p>
+                        <span class="small-print">Email:</span>
+                        <p class="text-secondary medium departments__text__description">jizzaxuzb@urmon.uz</p>
+                        <span class="small-print">Telefon:</span>
+                        <p class="text-secondary medium departments__text__description">+998 74 227 46 42</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CONNECTION -->
+            <section class="mt-100">
+                <h2 class="heading-primary">Bog’lanish</h2>
+                <div class="flex connection ">
+                    <div>
+                        <p class="small-print">Manzil:</p>
+                        <p class="text-secondary  connection__title ">100163, Toshkent viloyati, Qibray
+                            tumani,Universitet ko‘chasi,
+                            2-uy.</p>
+                        <span class="small-print ">Ish vaqti:</span>
+                        <p class="text-secondary connection__title">Dushanba-juma 9:00 dan 18:00 gacha</p>
+                        <span class="small-print">Ishonch telefonlari:</span>
+                        <p class="text-secondary connection__title ">(+998 71) 207-88-77</p>
+                        <span class="small-print ">Devonxona:</span>
+                        <p class="text-secondary connection__title">(+998 71) 263-06-70</p>
+                        <span class="small-print ">Email:</span>
+                        <p class="text-secondary connection__title">info@urmon.uz</p>
+                    </div>
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d748.6302297592549!2d69.3406637!3d41.3627658!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef351354984e3%3A0x3726da5f1689e098!2z0I7RgNC80L7QvSDRhdGe0LbQsNC70LjQs9C4INC00LDQstC70LDRgiDSm9Ge0LzQuNGC0LDRgdC4!5e0!3m2!1sru!2s!4v1667285458461!5m2!1sru!2s"
+                            width="850" height="450" style="border:0;" allowfullscreen="" loading="lazy" class="gap-30"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <h2 class="heading-primary">Foydali havolalar</h2>
+
+                <div class="carousel flex center gap-30" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
+                    <div>
+                        <div class="carousel__box flex center text-third">
+                            <img src="./assets/img/gerb.svg" alt="gerb">
+                            <a href="" class="text-third carousel__box__text">O‘zbekiston Respublikasi
+                                Davlat Soliq qo’mitasi</a>
+                        </div>
+                    </div>
+
+
+
+                    <div>
+                        <div class="carousel__box flex text-third center">
+                            <img src="./assets/img/mygov.svg" alt="mygov">
+                            <a href="" class="text-third carousel__box__text">Yagona interaktiv davlat
+                                xizmatlari</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="carousel__box flex text-third center">
+                            <img src="./assets/img/adlya.svg" alt="adlya">
+                            <a href="" class="text-third carousel__box__text">O‘zbekiston Respublikasi
+                                Adliya vazirligi</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="carousel__box flex text-third  center">
+                            <img src="./assets/img/gerb.svg" alt="gerb">
+                            <a href="" class="text-third carousel__box__text">O‘zbekiston Respublikasi
+                                Davlat Soliq qo’mitasi</a>
+                        </div>
+                    </div>
+
+            </section>
+
+            <section>
+                <div class="flex justify-s-b new-site ">
+                    <div class="flex">
+                        <img src="assets/img/device-message.svg" alt="#">
+                        <p class="text-secondary new-site__text">Yangi saytimiz haqida fikringiz qanday:</p>
+                    </div>
+                    <div>
+                        <div class="flex center new-site__checkbox">
+                            <div>
+                                <input type="radio" id="a'lo" name="new-site" value="a'lo" />
+                                <label for="a'lo" class="text-third">A'lo</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" id="yaxshi" name="new-site" value="yaxshi" />
+                                <label for="yaxshi" class="text-third">Yaxshi</label>
+
+                            </div>
+
+                            <div>
+                                <input type="radio" id="qoniqarli" name="new-site" value="qoniqarli" />
+                                <label for="qoniqarli" class="text-third" id="qoniqarli">Qoniqarli</label>
+                            </div>
+
+
+                            <div>
+                                <input type="radio" id="qoniqarsiz" name="new-site" value="qoniqarsiz" />
+                                <label for="qoniqarsiz" class="text-third">Qoniqarsiz</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn full-btn">Ovoz berish</button>
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+
+        <%- include("../layouts/footer")%>
+
+
+            <script src="js/lazy-loading.js"></script>
+            <script src="js/changeTheme.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+            <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/lightgallery.min.js"></script>
+
+
+            <script
+                src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/plugins/thumbnail/lg-thumbnail.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/lightgallery.min.js"></script>
+
+            <script src-="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.0/lightgallery.min.js"></script>
+
+            <script src="js/video-gallery.js" type="module"></script>
+
+            <!-- PHOTOGALLEY -->
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js"></script>
+            <script src="js/mediatogglers.js"></script>
+            <script src="js/topScroll.js"></script>
+            <script src="js/carusel.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<%- include ("../layouts/header") %>
+<head>
+  <link rel="stylesheet" href="/style/adminCss.css"/>
+
+</head>
+<body>
+  <main class="container grid grid-2-column news gap-30 ">
+    <div>
+
+
+      <!--SIDEBAR-->
+      <p class="text-secondary main-page-inner-page-secondary-title"><%=pressCenterHeader%> </p>
+
+      <ul class="card">
+        <li><a href="/<%=lang%>/press-center/news/?page=1&size=9" class="text-four pages-list active"><%=lang === 'uz' ? 'Yangiliklar' : lang === 'ru' ? 'Новости' : lang === 'en' ? 'News' : ''%></a></li>
+        <li><a href="/<%=lang%>/press-center/events/?page=1&size=9" class="pages-list text-four "><%=lang === 'uz' ? `E'lon va voqealar` : lang === 'ru' ? 'Объявления и события' : lang === 'en' ? 'Announcements and events' : ''%></a></li>
+        <li><a href="/<%=lang%>/press-center/tenders/?page=1&size=9" class="pages-list text-four "><%=lang === 'uz' ? 'Tender va xaridlar' : lang === 'ru' ? 'Тендеры и закупки' : lang === 'en' ? 'Tenders and purchases' : ''%></a>
+        </li>
+        <li><a href="/<%=lang%>/photo-gallery" class="pages-list text-four"><%=lang === 'uz' ? 'Fotogalareya' : lang === 'ru' ? 'Фотогаларея' : lang === 'en' ? 'Photo gallery' : ''%></a></li>
+        <li><a href="/<%=lang%>/video-gallery" class="pages-list text-four "><%=lang === 'uz' ? 'Videogalareya' : lang === 'ru' ? 'Видеогаларея' : lang === 'en' ? 'Video gallery' : ''%></a></li>
+        <li><a href="/<%=lang%>/contact-the-press-service" class="pages-list text-four"><%=lang === 'uz' ? 'Matbuot xizmati bilan bog‘lanish' : lang === 'ru' ? 'Связаться с пресс-службой' : lang === 'en' ? 'Contact the press service' : ''%></a></li>
+        <li><a href="/<%=lang%>/faqs" class="pages-list text-four"><%=lang === 'uz' ? 'Savol va javoblar' : lang === 'ru' ? 'Вопросы и ответы' : lang === 'en' ? 'Questions and answers' : ''%></a></li>
+        <li><a href="/<%=lang%>/management-lectures" class="pages-list text-four"><%=lang === 'uz' ? `Rahbariyat ma'ruzalari` : lang === 'ru' ? 'Лекции по лидерству' : lang === 'en' ? 'Leadership lectures' : ''%></a></li>
+        <li><a href="#" class="pages-list text-four"><%=lang === 'uz' ? `Qo'mita rahbariyatining rasmiy chiqishi` : lang === 'ru' ? 'Официальное заявление руководства комитета' : lang === 'en' ? `Official statement from the committee's leadership` : ''%></a></li>
+      </ul>
+      <!--SIDEBAR-->
+
+  </div>
+    <div class="news__main">
+      <div class="mb-16">
+        <a href='/<%=lang%>/' class="navigate-text"><%=lang === 'uz' ? 'Asosiy' : lang === 'ru' ? 'Главный' : lang === 'en' ? 'Main' : ''%></a>
+
+        <span class="navigate-text"> > </span>
+
+        <a href='/<%=lang%>/press-center/news/?page=1&size=9' class="navigate-text"><%=lang === 'uz' ? 'Matbuot markazi' : lang === 'ru' ? 'Пресс-центр' : lang === 'en' ? 'Press Center' : ''%></a>
+
+        <span class="navigate-text"> > </span>
+        <a href="/<%=lang%>/press-center/news/?page=1&size=9" class="navigate-text"><%=lang === 'uz' ? 'Yangiliklar' : lang === 'ru' ? 'Новости' : lang === 'en' ? 'News' : ''%></a>
+      </div>
+
+      <p class="heading-primary news__main__title"><%=pressCenterTitle%></p>
+      <% if( pagination.totalPages !== 0){ %>
+
+        <div class="flex news__main__box gap-30">
+
+      <% allPressCenters.map(news=>{ %>
+          <div class="news__main__card">
+          <a href=/<%=lang%>/press-center/news/<%=news.id%> class="text-four">
+
+            <img
+
+                    class="news__main__card__img"
+                    src='/uploads/<%=imageName.filter(e=>e.id===news.bannerId)[0].name%>'
+                    alt="img"
+            />
+
+            <div class="flex gap-30 news__small-card__icons">
+              <div class="flex center">
+                <img
+                        class="news__all-card__calendar mr-10"
+                        src="/assets/img/calendar.svg"
+                />
+                <span class="news__small-card__calendar-text">
+                  <% const dateNew = new Date(news.createdAt); %>
+
+                  <%= dateNew.getDate() + '/' + dateNew.getMonth() + '/' + dateNew.getFullYear() %>
+              </span>
+              </div>
+
+              <div class="flex center mr-10 view">
+                <img
+                        class="smnews__all-card__calendar mr-10"
+                        src="/assets/img/grey-eye.svg"
+                        alt=""
+                />
+
+                <span class="news__small-card__calendar-text"> <%= news.viewersCount %></span>
+              </div>
+            </div>
+
+              <%= news.title %>
+            </a>
+          </div>
+
+
+      <% }) %>
+        </div>
+
+      <div class="admin-panel__main__pagination__box">
+
+        <a href=<%=lang%>/press-center/news/?page=<%= pagination.page - 1 %>&size=9
+           class="<%= pagination.page === 1 ? 'admin-panel__main__pagination current-sides' : 'admin-panel__main__pagination current-sides-active' %>">
+          <img src="/assets/img/prevArrow.svg" alt="">
+        </a>
+        <% for(let i = 0; i < Math.ceil(pagination.count / 9);i++){ %>
+
+          <a href=<%=lang%>/press-center/news/?page=<%= i + 1 %>&size=9
+             class="<%= pagination.page === i + 1 ? 'admin-panel__main__pagination current' : 'admin-panel__main__pagination' %>"><%= i + 1 %> </a>
+
+        <% } %>
+        <a href=<%=lang%>/press-center/news/?page=<%= pagination.page + 1 %>&size=9
+           class="<%= pagination.page === pagination.totalPages ? 'admin-panel__main__pagination current-sides' : 'admin-panel__main__pagination current-sides-active' %>">
+          <img src="/assets/img/nextArrow.svg" alt="">
+
+        </a>
+
+      </div>
+      <% }else { %>
+        <h1>No content</h1>
+      <% } %>
+
+    </div>
+  </main>
+
+</body>
+<%- include ("../layouts/footer") %>
+

@@ -1,0 +1,1 @@
+exports.ROLE_SUPER_ADMIN = "SUPER_ADMIN";
